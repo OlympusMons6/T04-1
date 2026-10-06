@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T04 – SVG House &amp; Garden</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #f3f6f4;
+      color: #24382d;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 2px solid #527660;
+      border-radius: 12px;
+      background: #bfe8fa;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 8%);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>T04 – SVG House &amp; Garden</h1>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 800 500"
+      role="img"
+      aria-labelledby="scene-title scene-description"
+    >
+      <title id="scene-title">A sunny house and garden</title>
+      <desc id="scene-description">
+        A yellow house with a red triangular roof, brick chimney,
+        brown door, and two blue windows stands in a green garden.
+        A sun and fluffy cloud appear overhead. A leafy tree,
+        white fence, flowers, and curved pathway surround the house.
+        The caption reads: Home, sweet garden.
+      </desc>
+
+      <!-- Sky and grass: rectangles -->
+      <rect width="800" height="500" fill="#bfe8fa"/>
+      <rect y="350" width="800" height="150" fill="#86bd65"/>
+
+      <!-- Sun: circle -->
+      <circle cx="680" cy="85" r="43" fill="#ffd452"/>
+
+      <!-- Cloud: overlapping ellipses -->
+      <g fill="#fff">
+        <ellipse cx="140" cy="100" rx="65" ry="25"/>
+        <ellipse cx="110" cy="86" rx="32" ry="28"/>
+        <ellipse cx="155" cy="77" rx="40" ry="34"/>
+        <ellipse cx="192" cy="96" rx="35" ry="24"/>
+      </g>
+
+      <!-- Garden path: curved path with cubic Bézier segments -->
+      <path
+        d="M 388 390
+           C 350 430, 460 455, 350 500
+           L 510 500
+           C 575 450, 430 420, 438 390 Z"
+        fill="#dcc39b"
+        stroke="#b69b73"
+        stroke-width="3"
+      />
+
+      <!-- Fence: polylines with horizontal line rails -->
+      <g
+        fill="none"
+        stroke="#fffaf0"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline
+          points="20,390 20,325 40,312 60,325 60,390
+                  80,390 80,325 100,312 120,325 120,390
+                  140,390 140,325 160,312 180,325 180,390
+                  200,390 200,325 220,312 240,325 240,390"
+        />
+        <line x1="20" y1="345" x2="240" y2="345"/>
+        <line x1="20" y1="372" x2="240" y2="372"/>
+
+        <polyline
+          points="580,390 580,325 600,312 620,325 620,390
+                  640,390 640,325 660,312 680,325 680,390
+                  700,390 700,325 720,312 740,325 740,390
+                  760,390 760,325 780,312 792,325 792,390"
+        />
+        <line x1="580" y1="345" x2="792" y2="345"/>
+        <line x1="580" y1="372" x2="792" y2="372"/>
+      </g>
+
+      <!-- Tree -->
+      <rect x="117" y="245" width="30" height="155" rx="5" fill="#805337"/>
+      <g fill="#438951">
+        <circle cx="100" cy="240" r="49"/>
+        <circle cx="162" cy="237" r="48"/>
+        <circle cx="132" cy="195" r="54"/>
+      </g>
+      <circle cx="113" cy="188" r="28" fill="#59a55e"/>
+
+      <!-- Chimney, drawn before the roof -->
+      <rect
+        x="475" y="126" width="38" height="90"
+        fill="#a95743" stroke="#753c32" stroke-width="3"
+      />
+      <rect x="470" y="120" width="48" height="14" fill="#753c32"/>
+
+      <!-- House body -->
+      <rect
+        x="270" y="215" width="280" height="175"
+        fill="#f6dc98" stroke="#997044" stroke-width="3"
+      />
+
+      <!-- Roof: polygon -->
+      <polygon
+        points="245,225 410,105 575,225"
+        fill="#bd5748" stroke="#803d35"
+        stroke-width="5" stroke-linejoin="round"
+      />
+
+      <!-- Door -->
+      <rect
+        x="382" y="285" width="60" height="105" rx="4"
+        fill="#926044" stroke="#65422f" stroke-width="3"
+      />
+      <circle cx="430" cy="342" r="4" fill="#ffdb72"/>
+
+      <!-- Two windows -->
+      <g fill="#a8dded" stroke="#805b3e" stroke-width="4">
+        <rect x="293" y="258" width="60" height="58" rx="3"/>
+        <rect x="466" y="258" width="60" height="58" rx="3"/>
+      </g>
+      <g stroke="#805b3e" stroke-width="3">
+        <line x1="323" y1="258" x2="323" y2="316"/>
+        <line x1="293" y1="287" x2="353" y2="287"/>
+        <line x1="496" y1="258" x2="496" y2="316"/>
+        <line x1="466" y1="287" x2="526" y2="287"/>
+      </g>
+
+      <!-- Flowers -->
+      <g stroke="#387747" stroke-width="4">
+        <line x1="218" y1="409" x2="218" y2="438"/>
+        <line x1="594" y1="416" x2="594" y2="445"/>
+        <line x1="641" y1="404" x2="641" y2="433"/>
+      </g>
+      <g fill="#e77796">
+        <circle cx="218" cy="406" r="12"/>
+        <circle cx="594" cy="413" r="12"/>
+        <circle cx="641" cy="401" r="12"/>
+      </g>
+      <g fill="#ffe28a">
+        <circle cx="218" cy="406" r="5"/>
+        <circle cx="594" cy="413" r="5"/>
+        <circle cx="641" cy="401" r="5"/>
+      </g>
+
+      <!-- Caption: SVG text -->
+      <rect
+        x="245" y="451" width="310" height="36" rx="18"
+        fill="#fffaf0"
+      />
+      <text
+        x="400" y="475"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="22"
+        fill="#294b35"
+      >Home, sweet garden.</text>
+    </svg>
+  </main>
+</body>
+</html>
